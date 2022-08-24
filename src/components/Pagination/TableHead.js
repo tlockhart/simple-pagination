@@ -1,4 +1,3 @@
-// import {connect} from "react-redux";
 import React from "react";
 import "./styles.css";
 
@@ -6,15 +5,16 @@ import "./styles.css";
  * Returns Pagination Table Heading
  *****************************/
 function TableHead({tableHeaders}) {
+  // console.log("TABLEHEAD:", tableHeaders);
   const renderHeaders = tableHeaders.map((header, index) => {
     return (
       <th className="wd-lg-20p" key={index}>
-          <span>{header}</span>
+          {header}
         </th>
     )
   });
 
-  console.log("TABLEHEAD: PROPS:", tableHeaders);
+  // console.log("TABLEHEAD: PROPS:", tableHeaders);
   return (
     <thead>
       <tr>

@@ -50,6 +50,6 @@
 .wd-lg-20p {
     width: 20%;
   }
-  tr, td {
+  tr, td, th {
       outline: 1px red solid;
   }

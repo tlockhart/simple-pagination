@@ -22,11 +22,4 @@ const renderFields = tableFields.map((field, idx) => {
   );
 }
 
-// const mapStateToProps = ({ session }) => ({
-//   session,
-// });
-
-// const mapDispatchToProps = (dispatch) => ({});
-
-// export default connect(mapStateToProps, mapDispatchToProps)(TableRow);
 export default TableRow;
