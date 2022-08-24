@@ -8,8 +8,13 @@
 */
 import React, {useState, useEffect} from "react";
 import "./styles.css";
+import TableRow from "./TableRow";
 
 export let Pagination = ({data, RenderComponent, title, recommendedPageLimit, dataLimit}) => {
+console.log("Pagination: RenderComopnet:", RenderComponent().props);
+    const TableHead = RenderComponent().props.component;
+    const tableHeaders = RenderComponent().props.tableHeaders;
+    const tableFields = RenderComponent().props.tableFields;
     const recordCount = data.length;
     const [pages] = useState(Math.ceil(recordCount / dataLimit));
     const [currentPage, setCurrentPage] = useState(1);
@@ -132,13 +137,16 @@ export let Pagination = ({data, RenderComponent, title, recommendedPageLimit, da
     return (
         <div>
             <h1>{title}</h1>
+            {/* // Display Header */}
+            <TableHead  tableHeaders={tableHeaders} />
 
             {/* show the posts, 10 posts at a time */}
-            <div className="dataContainer">
+            {/* <div className="dataContainer"> */}
                 {getPaginatedData().map((d, idx) => (
-                    <RenderComponent key={idx} data={d}/>
+                    // Display table data;
+                    <TableRow key={idx} data={d} tableFields={tableFields}/>
                 ))}
-            </div>
+            {/* </div> */}
 
             {recordCount > dataLimit ? (<div className="pagination">
                 {/* previous button */}

@@ -46,3 +46,10 @@
     box-shadow: none;
     color: #999;
 }
+/******TableHead*******/
+.wd-lg-20p {
+    width: 20%;
+  }
+  tr, td {
+      outline: 1px red solid;
+  }

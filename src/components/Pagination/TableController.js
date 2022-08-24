@@ -1,46 +1,47 @@
 import React from "react";
 import TableRow from "./TableRow";
 import TableHead from "./TableHead";
-import {connect} from "react-redux";
+// import {connect} from "react-redux";
 
-const UserTable = (props) => {
-  const { data, deleteUser } = props;
+const TableController = (props) => {
+  const { data, deletePost, tableHeaders } = props;
+  console.log("TABLECONTROLLER:", props);
 
   const renderTableHeaders = () => {
-    return <TableHead />;
+    return <TableHead 
+    tableHeaders={tableHeaders}
+    />;
   };
 
   const renderTableRows = () => {
     if (data && data.length > 0) {
-      return data?.map((user, index) => {
+      return data?.map((post, index) => {
 		  return (<TableRow
 			  key={index}
-			  person={user}
-			  deleteUser={deleteUser} />);
+			  person={post}
+			  deletePost={deletePost} />);
 
       });
-    } else {
-		return (
-			<tr><td colSpan={7}>Loading Users...</td></tr>
-		)
-	}
+    }
+  //    else {
+	// 	return (
+	// 		<tr><td colSpan={7}>Loading Users...</td></tr>
+	// 	)
+	// }
   };
 
   return (
     <div id="table-wrapper">
-      <div className="table-responsive userlist-table">
+      {/* <div className="table-responsive userlist-table"> */}
         <table className="table card-table table-striped table-vcenter text-nowrap mb-0 issues-table">
           {renderTableHeaders()}
-          <tbody>{renderTableRows()}</tbody>
+          {/* <tbody> */}
+            {renderTableRows()}
+            {/* </tbody> */}
         </table>
-      </div>
+      {/* </div> */}
     </div>
   );
 };
 
-const mapStateToProps = ({session}) => ({
-	session
-});
-export default connect(
-	mapStateToProps
-)(UserTable);
+export default TableController;
